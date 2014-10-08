@@ -1,2 +1,6 @@
 language: ruby
 script: 'true'
+notifications:
+  slack:
+    rooms:
+      - codepurpose:qBdzNtSLTbE2PbRMftzOSu8d#capstone
