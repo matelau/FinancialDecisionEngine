@@ -1,6 +1,7 @@
 language: ruby
-script: 'true'
+script:
+  - RAILS_ENV=test bundle exec rake --trace
 notifications:
   slack:
     rooms:
-      - codepurpose:qBdzNtSLTbE2PbRMftzOSu8d#capstone
+      - codepurpose:qBdzNtSLTbE2PbRMftzOSu8d#capstone-notification
