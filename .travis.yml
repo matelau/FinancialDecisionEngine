@@ -1,6 +1,6 @@
 language: ruby
 script:
-  - RAILS_ENV=test bundle exec rake --trace
+  "./testRubyApp.sh"
 notifications:
   slack:
     rooms:
