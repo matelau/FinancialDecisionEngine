@@ -9,5 +9,5 @@ It is our hope to help people become smarter with their money by helping them un
 ###How to get UI running
 * git pull project
 * cd into cents directory
-* gem bundle install
+* run bundle install
 * rails s
