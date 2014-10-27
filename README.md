@@ -7,7 +7,7 @@ The foundation of this idea is to help prepare potential college students for th
 It is our hope to help people become smarter with their money by helping them understand the consequences of their bigger financial decisions. The knowledge we are providing can be found by searching  the internet but is usually generalized and non-intuitive. We hope to eliminate this barrier by allowing a user to retrieve  information that is both specific to them and also  easy to understand.
 
 ###How to get UI running
-*git pull project
-*cd into cents directory
-*gem bundle install
-*rails s
+* git pull project
+* cd into cents directory
+* gem bundle install
+* rails s
