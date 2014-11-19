@@ -1,9 +1,8 @@
 language: ruby
 before_script:
- - cd cents
- - bundle install
+# do nothing now
 script:
-  - RAILS_ENV=test bundle exec rake --trace
+# do nothing now 
 notifications:
   slack:
     rooms:
