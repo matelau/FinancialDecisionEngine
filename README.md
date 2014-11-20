@@ -11,3 +11,11 @@ It is our hope to help people become smarter with their money by helping them un
 * cd into cents directory
 * run bundle install
 * rails s
+=======
+Cents - A Financial Decision Engine
+=======================
+If you want to contribue 
+* git clone 
+* git checkout gh-pages
+* commit and push your changes
+
