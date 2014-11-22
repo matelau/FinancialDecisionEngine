@@ -8,9 +8,7 @@ require 'yaml'
 loc_to_values = Hash.new 
 state_to_values = Hash.new
 # TODO update to collect data on multiple cities in a less formal matter
-# areas = ["phoenix-az", "tucson-az", "mesa-az", "los+angeles-ca", "san+francisco-ca", "san+jose-ca", "san+diego-ca", "sacramento-ca", "denver-co", "colorado+springs-co", "aurora-co", "fort+lauderdale-fl", "jacksonville-fl", "miami-fl", "tampa-fl", "new+york-ny", "oyster+bay-ny", "buffalo-ny", "austin-tx", "houston-tx", "san+antonio-tx", "dallas-tx", "seattle-wa", "spokane-wa", "tacoma-wa", "vancouver-wa", "madison-wi", "milwaukee-wi", "green+bay-wi", "salt+lake+city-ut", "west+valley+city-ut", "provo-ut"]
- 
-areas = ["phoenix-az"]
+areas = ["phoenix-az", "tucson-az", "mesa-az", "los+angeles-ca", "san+francisco-ca", "san+jose-ca", "san+diego-ca", "sacramento-ca", "denver-co", "colorado+springs-co", "aurora-co", "fort+lauderdale-fl", "jacksonville-fl", "miami-fl", "tampa-fl", "new+york-ny", "oyster+bay-ny", "buffalo-ny", "austin-tx", "houston-tx", "san+antonio-tx", "dallas-tx", "seattle-wa", "spokane-wa", "tacoma-wa", "vancouver-wa", "madison-wi", "milwaukee-wi", "green+bay-wi", "salt+lake+city-ut", "west+valley+city-ut", "provo-ut"]
 columns = Array.new
 areas.each do |area|
 	# Test Script used to play with nokogiri - pulls cost of living data from areavibes.com
@@ -115,18 +113,16 @@ store_vals[table_name].each do |loc|
 	housing = loc_data[columns[4]]
 	trans = loc_data[columns[5]]
 	util = loc_data[columns[6]]
-	query = "INSERT INTO cents_dev.colis (cost_of_living, transportation, groceries, goods, health_care, utilities, location, housing) VALUES (#{col},#{trans},#{groc},#{goods},#{hc},#{housing},#{util}, #{curr_loc}, #{housing})"
-	puts query
+	query = "INSERT INTO cents_dev.colis (cost_of_living, transportation, groceries, goods, health_care, utilities, location, housing) VALUES (#{col},#{trans},#{groc},#{goods},#{hc},#{util}, '#{curr_loc}', #{housing})"
 	results =  db_client.query(query)
-	puts results
 end
 
 
-store_vals
-col_file = Pathname.pwd.to_s + "/data/col.json"
-# col_state_file = Pathname.pwd.to_s + "/data/col_state.json"
-js = store_vals.to_json
-File.write(col_file, js)
+# store_vals
+# col_file = Pathname.pwd.to_s + "/data/col.json"
+# # col_state_file = Pathname.pwd.to_s + "/data/col_state.json"
+# js = store_vals.to_json
+# File.write(col_file, js)
 # js = state_to_values.to_json
 # File.write(col_state_file, js)
 
