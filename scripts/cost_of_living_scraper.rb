@@ -143,6 +143,7 @@ areas.each do |area|
 	end
 
 
+	# Store cities for later use with the db
 	if !cities.include?(city)
 		cities.push city
 	end
@@ -210,7 +211,7 @@ else
 
 
 	# --------------- Database Code weather_reports ------------------------- 
-
+	# iterate cities and push data to db
 	cities.each do |city|
 		# get id
 		query = "SELECT id FROM colis WHERE location='#{city}'"
