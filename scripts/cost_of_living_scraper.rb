@@ -14,7 +14,6 @@ cities = Array.new
 
 # TODO update to collect data on multiple cities in a less formal matter
 areas = ["phoenix-az" , "tucson-az" , "mesa-az", "los+angeles-ca", "san+francisco-ca", "san+jose-ca", "san+diego-ca", "sacramento-ca", "denver-co", "colorado+springs-co", "aurora-co","washington-dc", "fort+lauderdale-fl", "jacksonville-fl", "miami-fl", "tampa-fl", "chicago-il", "aurora-il", "indianapolis-in", "boston-ma", "detroit-mi", "columbus-oh", "charlotte-nc", "new+york-ny", "oyster+bay-ny", "buffalo-ny", "philadelphia-pa", "memphis-tn", "nashville-tn", "austin-tx","el+paso-tx", "fort+worth-tx", "houston-tx", "san+antonio-tx", "dallas-tx", "seattle-wa", "spokane-wa", "tacoma-wa", "vancouver-wa", "madison-wi", "milwaukee-wi", "green+bay-wi", "salt+lake+city-ut", "west+valley+city-ut", "provo-ut"]
-locations = Array.new
 #------------------------- Cost of Living data ------------------------------
 areas.each do |area|
 	# Test Script used to play with nokogiri - pulls cost of living data from areavibes.com
@@ -132,21 +131,7 @@ areas.each do |area|
 	weather_area[city] = month_data 
 
 end
-
-# ------------------ Database Code COL -------------------------------
-
-store_vals = Hash.new
-table_name = "colis"
-store_vals[table_name] = loc_to_values
-curr_loc = " "
-col = " "
-goods = " "
-groc = " "
-hc = " "
-housing = " "
-trans = " "
-util = " "
-
+# ------------------ Database init ----------------------------------
 # get relative path
 path = Pathname.pwd.to_s
 path.sub! 'scripts', 'config/database.yml'
@@ -165,6 +150,21 @@ db_client = Mysql2::Client.new(
   :password => "#{@password}",
   :database => "#{@database_name}",
   :secure_auth => false)
+
+# ------------------ Database Code COL -------------------------------
+
+store_vals = Hash.new
+table_name = "colis"
+store_vals[table_name] = loc_to_values
+curr_loc = " "
+col = " "
+goods = " "
+groc = " "
+hc = " "
+housing = " "
+trans = " "
+util = " "
+
 
 store_vals[table_name].each do |loc|
 	curr_loc =  loc[0].to_s
